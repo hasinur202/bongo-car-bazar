@@ -134,10 +134,10 @@ async function run() {
             res.json(result)
         })
 
-        // GET Booking by userid
-        app.get('/orders/:uid', async (req, res) => {
-            const uid = req.params.uid;
-            const query = { uid: uid };
+        // GET order by email
+        app.get('/orders/:email', async (req, res) => {
+            const uid = req.params.email;
+            const query = { email: uid };
             const booking = await OrdersCollection.find(query);
             const booktours = await booking.toArray();
             res.json(booktours);
